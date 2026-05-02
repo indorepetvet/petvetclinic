@@ -3,108 +3,1298 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PetVet Veterinary Clinic | Indore</title>
-  <meta name="description" content="PetVet Veterinary Clinic, Indore — consultations, vaccination, treatment, wellness care and compassionate support for pets and street animals." />
-  <meta name="theme-color" content="#0f4ac9" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { theme: { extend: { colors: { petBlue:'#1452cc', petInk:'#10213f', petYellow:'#f8c829' } } } }
-  </script>
+  <title>PetVet Indore | Veterinary Clinic for Pets With Personality</title>
+  <meta name="description" content="PetVet Veterinary Clinic in Indore offers consultations, vaccination, deworming, wellness care and practical guidance for pets and community animals." />
+  <meta name="theme-color" content="#ffbd3d" />
+  <meta property="og:title" content="PetVet Indore" />
+  <meta property="og:description" content="Bright, compassionate veterinary care by Dr. Amrit Lal Sharma in Surya Dev Nagar, Indore." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/maps/map-photo-1.jpg" />
   <style>
-    html{scroll-behavior:smooth}
-    .float{animation:float 3.8s ease-in-out infinite}
-    .float2{animation:float 4.3s ease-in-out infinite .4s}
-    .ticker span{display:inline-block;animation:slide 14s linear infinite;white-space:nowrap}
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-    @keyframes slide{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    :root {
+      --ink: #111827;
+      --body: #4b5563;
+      --muted: #6b7280;
+      --line: #f0d9b7;
+      --paper: #fff7e8;
+      --white: #ffffff;
+      --teal: #008b7a;
+      --teal-2: #18b7a0;
+      --mint: #cdfbee;
+      --sun: #ffbd3d;
+      --rose: #ffe4ef;
+      --coral: #ff6f61;
+      --pink: #ff4fa3;
+      --blue: #3b82f6;
+      --shadow: 0 24px 70px rgba(69, 41, 7, .16);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--body);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input, textarea { font: inherit; }
+    .page {
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 10% 4%, rgba(255, 79, 163, .20), transparent 22rem),
+        radial-gradient(circle at 92% 8%, rgba(59, 130, 246, .16), transparent 25rem),
+        radial-gradient(circle at 78% 42%, rgba(24, 183, 160, .18), transparent 26rem),
+        linear-gradient(135deg, #fff3c8 0%, #fff8e8 34%, #effff9 72%, #fff0f7 100%);
+    }
+    .container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -80px;
+      z-index: 100;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--white);
+      padding: 10px 14px;
+      font-weight: 800;
+      transition: top .2s ease;
+    }
+    .skip-link:focus { top: 16px; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      border-bottom: 1px solid rgba(220, 231, 226, .72);
+      background: rgba(255, 247, 232, .88);
+      backdrop-filter: blur(20px);
+    }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      font-weight: 950;
+      letter-spacing: -.02em;
+    }
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--teal), #183f3c);
+      box-shadow: 0 12px 28px rgba(11, 111, 104, .24);
+    }
+    .brand-mark svg { width: 25px; height: 25px; }
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: #495653;
+      font-size: 14px;
+      font-weight: 850;
+    }
+    .nav-links a { transition: color .18s ease; }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .mobile-menu {
+      display: none;
+      position: relative;
+    }
+    .mobile-menu summary {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--white);
+      color: var(--ink);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      list-style: none;
+    }
+    .mobile-menu summary::-webkit-details-marker { display: none; }
+    .mobile-menu summary svg { width: 22px; height: 22px; }
+    .mobile-menu-panel {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: 0;
+      width: min(300px, calc(100vw - 24px));
+      display: grid;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 20px 55px rgba(16, 32, 31, .16);
+      padding: 12px;
+    }
+    .mobile-menu-panel a {
+      border-radius: 14px;
+      padding: 12px 14px;
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .mobile-menu-panel a:hover { background: var(--mint); }
+
+    .btn {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-size: 14px;
+      font-weight: 950;
+      line-height: 1;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn svg { width: 18px; height: 18px; flex: 0 0 auto; }
+    .btn-primary {
+      color: var(--white);
+      background: linear-gradient(135deg, var(--teal), var(--teal-2));
+      box-shadow: 0 15px 30px rgba(11, 111, 104, .24);
+    }
+    .btn-dark {
+      color: var(--white);
+      background: var(--ink);
+      box-shadow: 0 15px 30px rgba(16, 32, 31, .2);
+    }
+    .btn-soft {
+      border-color: var(--line);
+      color: var(--ink);
+      background: rgba(255, 255, 255, .76);
+    }
+    .btn-whatsapp {
+      color: var(--white);
+      background: #128c7e;
+      box-shadow: 0 15px 30px rgba(18, 140, 126, .22);
+    }
+
+    .hero {
+      position: relative;
+      padding: 56px 0 38px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, .98fr);
+      gap: 46px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(11, 111, 104, .16);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .78);
+      color: #8b3900;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--sun);
+      box-shadow: 0 0 0 6px rgba(247, 183, 51, .18);
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 760px;
+      margin-bottom: 20px;
+      color: var(--ink);
+      font-size: clamp(58px, 10vw, 118px);
+      line-height: .82;
+      letter-spacing: -.075em;
+    }
+    .hero-copy {
+      max-width: 630px;
+      margin-bottom: 28px;
+      color: #4d5d59;
+      font-size: clamp(17px, 2.1vw, 21px);
+      font-weight: 650;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 670px;
+    }
+    .proof-card {
+      min-height: 112px;
+      border: 1px solid rgba(220, 231, 226, .88);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, .68);
+      padding: 16px;
+      box-shadow: 0 12px 32px rgba(16, 32, 31, .06);
+    }
+    .proof-card strong {
+      display: block;
+      color: var(--ink);
+      font-size: 21px;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+    }
+    .proof-card span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 750;
+    }
+    .hero-media {
+      position: relative;
+      min-height: 650px;
+    }
+    .photo-stack {
+      position: relative;
+      height: 650px;
+    }
+    .mascot-stage {
+      position: relative;
+      height: 142px;
+      max-width: 620px;
+      margin-top: 16px;
+      border: 2px solid rgba(17, 24, 39, .08);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 14% 34%, rgba(255, 189, 61, .55), transparent 8rem),
+        radial-gradient(circle at 86% 48%, rgba(255, 79, 163, .25), transparent 8rem),
+        rgba(255, 255, 255, .70);
+      box-shadow: 0 16px 34px rgba(69, 41, 7, .09);
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .mascot {
+      position: absolute;
+      width: 122px;
+      filter: drop-shadow(0 18px 24px rgba(17, 24, 39, .18));
+      animation: bob 3.6s ease-in-out infinite;
+    }
+    .mascot svg { width: 100%; height: auto; display: block; }
+    .mascot-dog {
+      left: 18px;
+      top: 12px;
+      transform-origin: 50% 100%;
+    }
+    .mascot-cat {
+      right: 22px;
+      top: 15px;
+      animation-delay: .65s;
+      transform-origin: 50% 100%;
+    }
+    .speech-bubble {
+      position: absolute;
+      left: 50%;
+      top: 27px;
+      transform: translateX(-50%) rotate(-2deg);
+      max-width: 250px;
+      border: 3px solid var(--ink);
+      border-radius: 22px;
+      background: var(--white);
+      color: var(--ink);
+      padding: 11px 14px;
+      font-size: 13px;
+      font-weight: 950;
+      line-height: 1.12;
+      box-shadow: 8px 8px 0 rgba(255, 111, 97, .25);
+      animation: wiggle 4.2s ease-in-out infinite;
+    }
+    .speech-bubble::after {
+      content: "";
+      position: absolute;
+      left: 28px;
+      bottom: -13px;
+      width: 22px;
+      height: 22px;
+      border-right: 3px solid var(--ink);
+      border-bottom: 3px solid var(--ink);
+      background: var(--white);
+      transform: rotate(45deg);
+    }
+    .main-photo,
+    .pet-photo,
+    .clinic-photo {
+      position: absolute;
+      overflow: hidden;
+      border: 8px solid rgba(255, 255, 255, .94);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .main-photo {
+      inset: 0 0 106px 48px;
+      border-radius: 38px;
+    }
+    .main-photo img,
+    .pet-photo img,
+    .clinic-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .main-photo img { object-position: 42% 50%; }
+    .pet-photo {
+      left: 0;
+      bottom: 28px;
+      width: min(54%, 310px);
+      aspect-ratio: 1 / 1;
+      border-radius: 34px;
+      transform: rotate(-3deg);
+    }
+    .clinic-photo {
+      right: 14px;
+      bottom: 0;
+      width: min(44%, 250px);
+      height: 290px;
+      border-radius: 34px;
+      transform: rotate(3deg);
+    }
+    .status-card {
+      position: absolute;
+      top: 28px;
+      left: 0;
+      max-width: 235px;
+      border: 1px solid rgba(255, 255, 255, .66);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .88);
+      box-shadow: 0 20px 50px rgba(16, 32, 31, .15);
+      padding: 16px;
+    }
+    .status-card strong {
+      color: var(--ink);
+      display: block;
+      font-size: 15px;
+      line-height: 1.15;
+    }
+    .status-card span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 750;
+    }
+    .quick-card {
+      position: absolute;
+      right: 4px;
+      top: 54%;
+      width: 245px;
+      transform: translateY(-50%);
+      border: 1px solid rgba(255, 255, 255, .7);
+      border-radius: 24px;
+      background: rgba(16, 32, 31, .9);
+      color: var(--white);
+      box-shadow: 0 24px 55px rgba(16, 32, 31, .2);
+      padding: 18px;
+    }
+    .quick-card span {
+      display: block;
+      color: rgba(255, 255, 255, .72);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .quick-card strong {
+      display: block;
+      margin-top: 6px;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+    @keyframes bob {
+      0%, 100% { translate: 0 0; rotate: -1deg; }
+      50% { translate: 0 -12px; rotate: 2deg; }
+    }
+    @keyframes wiggle {
+      0%, 100% { rotate: -2deg; }
+      50% { rotate: 2deg; }
+    }
+
+    .ribbon {
+      border-block: 1px solid rgba(11, 111, 104, .12);
+      background: rgba(223, 245, 238, .72);
+      color: #164844;
+      overflow: hidden;
+    }
+    .ribbon-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 24s linear infinite;
+    }
+    .ribbon span {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+    .ribbon i {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--sun);
+    }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    section { padding: 86px 0; }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .78fr) minmax(280px, .44fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 32px;
+    }
+    .kicker {
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 8px 0 0;
+      color: var(--ink);
+      font-size: clamp(33px, 5vw, 58px);
+      line-height: .96;
+      letter-spacing: -.055em;
+    }
+    .section-head p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .service-card {
+      position: relative;
+      min-height: 235px;
+      border: 1px solid rgba(220, 231, 226, .9);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .76);
+      padding: 24px;
+      box-shadow: 0 14px 38px rgba(16, 32, 31, .06);
+      overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 58px rgba(16, 32, 31, .12);
+    }
+    .service-card::after {
+      content: "";
+      position: absolute;
+      right: -44px;
+      top: -44px;
+      width: 116px;
+      height: 116px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255, 189, 61, .22), rgba(255, 79, 163, .14));
+    }
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: var(--teal);
+      background: var(--mint);
+      margin-bottom: 18px;
+    }
+    .service-icon svg { width: 25px; height: 25px; }
+    .service-card h3 {
+      margin-bottom: 10px;
+      color: var(--ink);
+      font-size: 21px;
+      line-height: 1.12;
+      letter-spacing: -.025em;
+    }
+    .service-card p {
+      margin-bottom: 0;
+      color: var(--body);
+      font-size: 15px;
+    }
+
+    .doctor-section {
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(255, 189, 61, .22), rgba(255, 79, 163, .10), rgba(24, 183, 160, .12)),
+        rgba(255, 255, 255, .48);
+    }
+    .doctor-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(340px, .64fr);
+      gap: 28px;
+      align-items: start;
+    }
+    .doctor-card,
+    .credential-card {
+      border: 1px solid rgba(220, 231, 226, .9);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, .76);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .doctor-card { display: grid; grid-template-columns: .95fr 1.05fr; }
+    .doctor-card img { height: 100%; min-height: 470px; width: 100%; object-fit: cover; object-position: 39% 50%; }
+    .doctor-copy { padding: 34px; }
+    .doctor-copy h2 { font-size: clamp(34px, 4vw, 54px); }
+    .doctor-copy p { font-size: 16px; }
+    .meta-list {
+      display: grid;
+      gap: 12px;
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .meta-list li {
+      display: flex;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(251, 248, 241, .68);
+      padding: 14px;
+      color: var(--ink);
+      font-weight: 850;
+    }
+    .check {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      display: inline-grid;
+      flex: 0 0 auto;
+      place-items: center;
+      color: var(--white);
+      background: var(--teal);
+      font-size: 14px;
+      font-weight: 950;
+    }
+    .credential-card { padding: 18px; }
+    .credential-card img {
+      width: 100%;
+      max-height: 620px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      object-fit: contain;
+      background: var(--white);
+    }
+    .credential-note {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 2px 14px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .care-panel {
+      border-radius: 30px;
+      background: linear-gradient(135deg, #111827, #064e47);
+      color: var(--white);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+    .care-panel h2 { color: var(--white); font-size: clamp(33px, 4vw, 52px); }
+    .care-panel p { color: rgba(255, 255, 255, .76); }
+    .care-list {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .care-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-weight: 850;
+    }
+    .care-list .check { background: var(--sun); color: #4a3700; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .gallery-item {
+      position: relative;
+      min-height: 270px;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--white);
+    }
+    .gallery-item.tall { grid-row: span 2; min-height: 558px; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-item.tall img { object-position: 48% 50%; }
+    .gallery-caption {
+      position: absolute;
+      inset: auto 14px 14px 14px;
+      border: 1px solid rgba(255, 255, 255, .45);
+      border-radius: 18px;
+      background: rgba(16, 32, 31, .78);
+      color: var(--white);
+      padding: 13px 14px;
+      backdrop-filter: blur(12px);
+      font-size: 14px;
+      font-weight: 850;
+    }
+
+    .visit-section {
+      padding-top: 34px;
+    }
+    .visit-card {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: 0;
+      overflow: hidden;
+      border: 1px solid rgba(220, 231, 226, .92);
+      border-radius: 34px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .visit-copy {
+      padding: 34px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 189, 61, .32), transparent 16rem),
+        radial-gradient(circle at bottom left, rgba(255, 79, 163, .12), transparent 15rem),
+        linear-gradient(180deg, #ffffff, #f8fffb);
+    }
+    .visit-copy h2 { font-size: clamp(34px, 4vw, 54px); }
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin: 26px 0;
+    }
+    .contact-row {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 13px;
+      align-items: start;
+    }
+    .contact-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: var(--teal);
+      background: var(--mint);
+    }
+    .contact-icon svg { width: 22px; height: 22px; }
+    .contact-row span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .contact-row strong {
+      display: block;
+      margin-top: 3px;
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.35;
+    }
+    .visit-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .map-wrap {
+      min-height: 570px;
+      background: #edf4f0;
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 570px;
+      border: 0;
+      filter: saturate(.92) contrast(.97);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .faq-card {
+      border: 1px solid rgba(220, 231, 226, .92);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .74);
+      padding: 20px;
+    }
+    .faq-card h3 {
+      color: var(--ink);
+      margin-bottom: 8px;
+      font-size: 18px;
+      letter-spacing: -.02em;
+    }
+    .faq-card p { margin-bottom: 0; font-size: 14px; }
+
+    .site-footer {
+      border-top: 1px solid rgba(220, 231, 226, .9);
+      padding: 30px 0 96px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, .45);
+    }
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      font-size: 14px;
+    }
+    .footer-links { display: flex; gap: 18px; font-weight: 850; color: var(--ink); }
+    .sticky-cta {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      z-index: 50;
+      display: none;
+      width: min(640px, calc(100% - 24px));
+      transform: translateX(-50%);
+      gap: 10px;
+      border: 1px solid rgba(255, 255, 255, .72);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .86);
+      padding: 8px;
+      box-shadow: 0 18px 55px rgba(16, 32, 31, .18);
+      backdrop-filter: blur(18px);
+    }
+    .sticky-cta .btn { flex: 1; padding-inline: 12px; }
+
+    .reveal { transition: transform .22s ease, box-shadow .22s ease; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+      .reveal { transform: none; }
+    }
+
+    @media (max-width: 980px) {
+      .container { width: min(100% - 28px, 720px); }
+      .nav-links, .nav-actions { display: none; }
+      .mobile-menu { display: block; }
+      .mobile-menu summary { display: flex; }
+      .hero { padding-top: 34px; }
+      .hero-grid,
+      .section-head,
+      .doctor-grid,
+      .experience-grid,
+      .visit-card {
+        grid-template-columns: 1fr;
+      }
+      .hero-media { min-height: auto; }
+      .photo-stack { height: 600px; }
+      .main-photo { inset: 0 0 112px 0; }
+      .status-card { left: 18px; top: 18px; }
+      .quick-card { right: 16px; top: auto; bottom: 150px; transform: none; }
+      .mascot-stage { height: 132px; }
+      .mascot { width: 112px; }
+      .speech-bubble { top: 24px; max-width: 224px; }
+      .services-grid, .faq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .doctor-card { grid-template-columns: 1fr; }
+      .doctor-card img { min-height: 360px; max-height: 520px; }
+      .map-wrap, .map-wrap iframe { min-height: 420px; }
+    }
+
+    @media (max-width: 650px) {
+      .container { width: min(100% - 24px, 560px); }
+      .nav { min-height: 68px; }
+      .brand small { display: none; }
+      .hero { padding-top: 26px; }
+      h1 {
+        font-size: clamp(58px, 20vw, 92px);
+      }
+      .hero-copy { font-size: 17px; }
+      .hero-actions .btn { width: 100%; }
+      .hero-proof { grid-template-columns: 1fr; }
+      .proof-card { min-height: auto; }
+      .photo-stack { height: 540px; }
+      .main-photo {
+        inset: 0 0 142px 0;
+        border-radius: 28px;
+        border-width: 6px;
+      }
+      .pet-photo {
+        width: 58%;
+        bottom: 32px;
+        border-radius: 26px;
+        border-width: 6px;
+      }
+      .clinic-photo {
+        width: 46%;
+        height: 218px;
+        right: 2px;
+        border-radius: 26px;
+        border-width: 6px;
+      }
+      .status-card {
+        max-width: 210px;
+        border-radius: 18px;
+        padding: 13px;
+        top: 18px;
+      }
+      .quick-card {
+        width: 218px;
+        right: 7px;
+        bottom: 140px;
+        border-radius: 20px;
+        padding: 14px;
+      }
+      .mascot-stage {
+        height: 124px;
+        margin-top: 14px;
+        border-radius: 22px;
+      }
+      .mascot { width: 92px; }
+      .mascot-cat { right: 4px; top: 27px; }
+      .mascot-dog { left: 3px; top: 27px; }
+      .speech-bubble {
+        top: 14px;
+        width: 166px;
+        font-size: 12px;
+        padding: 9px 11px;
+      }
+      section { padding: 64px 0; }
+      .services-grid,
+      .faq-grid,
+      .gallery-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: 0; }
+      .doctor-copy, .visit-copy, .care-panel { padding: 24px; }
+      .gallery-item,
+      .gallery-item.tall { min-height: 330px; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+      .sticky-cta {
+        display: flex;
+        bottom: 10px;
+        border-radius: 24px;
+      }
+      .sticky-cta .btn {
+        min-height: 48px;
+        font-size: 13px;
+      }
+    }
   </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VeterinaryCare",
+      "name": "PetVet Veterinary Clinic",
+      "image": "assets/maps/map-photo-1.jpg",
+      "telephone": "+919827092475",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "18 A, Surya Dev Nagar",
+        "addressLocality": "Indore",
+        "addressRegion": "Madhya Pradesh",
+        "postalCode": "452009",
+        "addressCountry": "IN"
+      },
+      "url": "https://indorepetvet.com",
+      "medicalSpecialty": "Veterinary medicine"
+    }
+  </script>
 </head>
-<body class="bg-white text-slate-700 antialiased">
-  <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
-      <a href="#home" class="flex items-center gap-2 font-black text-petInk">
-        <span class="grid h-9 w-9 place-items-center rounded-xl bg-petBlue text-white">
-          <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true"><path d="M4.5 9A2.5 2.5 0 1 0 4.5 4a2.5 2.5 0 0 0 0 5Zm15 0A2.5 2.5 0 1 0 19.5 4a2.5 2.5 0 0 0 0 5ZM12 6A2.75 2.75 0 1 0 12 .5 2.75 2.75 0 0 0 12 6Zm-3.65 5.5c-2.4 0-4.35 2.03-4.35 4.54C4 19.47 7.22 22 12 22s8-2.53 8-5.96c0-2.51-1.95-4.54-4.35-4.54-1.35 0-2.34.64-3.65 1.53-1.31-.89-2.3-1.53-3.65-1.53Z"/></svg>
-        </span>
-        PetVet
-      </a>
-      <div class="hidden gap-5 text-sm font-semibold text-slate-600 md:flex">
-        <a href="#about" class="hover:text-petBlue">About</a><a href="#services" class="hover:text-petBlue">Services</a><a href="#reviews" class="hover:text-petBlue">Reviews</a><a href="#gallery" class="hover:text-petBlue">Gallery</a><a href="#contact" class="hover:text-petBlue">Contact</a>
-      </div>
-      <a href="https://wa.me/919827092475" target="_blank" rel="noopener" class="rounded-xl bg-green-600 px-3 py-2 text-sm font-bold text-white">WhatsApp</a>
-    </nav>
-  </header>
-
-  <section id="home" class="relative isolate min-h-[86vh] overflow-hidden">
-    <video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline>
-      <source src="https://360cdn.s3.us-west-1.amazonaws.com/assets/o360/video/video-veterinary.mp4" type="video/mp4">
-    </video>
-    <div class="absolute inset-0 bg-gradient-to-r from-[#0f2f76]/90 via-[#1452cc]/70 to-[#1452cc]/35"></div>
-    <div class="relative mx-auto grid min-h-[86vh] max-w-7xl items-center gap-8 px-4 py-10 md:grid-cols-2">
-      <div class="text-white">
-        <p class="inline-block rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-extrabold uppercase tracking-wider">Your Pet Wellness Center</p>
-        <h1 class="mt-4 text-5xl font-black leading-none sm:text-7xl">PETVET</h1>
-        <p class="mt-4 max-w-xl text-blue-50">Compassionate veterinary care in Indore for pets and street animals — friendly guidance, practical treatment, and trusted doctor support.</p>
-        <div class="mt-5 flex flex-wrap gap-2">
-          <span class="float rounded-full bg-white/20 px-4 py-2 text-sm font-extrabold">🚶 Walk-ins Available</span>
-          <span class="float2 rounded-full bg-petYellow px-4 py-2 text-sm font-black text-[#533f00]">💉 Get Vaxed</span>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page">
+    <header class="site-header">
+      <div class="container nav">
+        <a href="#home" class="brand" aria-label="PetVet home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7.4 10.1c1.1 0 2-1.1 2-2.5s-.9-2.5-2-2.5-2 1.1-2 2.5.9 2.5 2 2.5Zm9.2 0c1.1 0 2-1.1 2-2.5s-.9-2.5-2-2.5-2 1.1-2 2.5.9 2.5 2 2.5ZM12 8.2c1.2 0 2.1-1.2 2.1-2.7S13.2 2.8 12 2.8 9.9 4 9.9 5.5 10.8 8.2 12 8.2Zm0 3.1c-2.9 0-5.6 2.8-5.6 5.5 0 2 1.8 3.2 3.7 2.3 1.1-.5 2.7-.5 3.8 0 1.9.9 3.7-.3 3.7-2.3 0-2.7-2.7-5.5-5.6-5.5Z" fill="currentColor"/>
+            </svg>
+          </span>
+          <span>PetVet <small>Veterinary Clinic</small></span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#services">Services</a>
+          <a href="#doctor">Doctor</a>
+          <a href="#gallery">Clinic</a>
+          <a href="#visit">Visit</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn btn-soft" href="https://www.instagram.com/indorepetvet" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn btn-primary" href="tel:+919827092475" aria-label="Call PetVet Veterinary Clinic">Call clinic</a>
         </div>
-        <div class="mt-5 flex flex-wrap gap-2">
-          <a href="tel:+919827092475" class="rounded-xl bg-white px-4 py-2 font-extrabold text-petBlue">📞 Call Now</a>
-          <a href="https://wa.me/919827092475" target="_blank" rel="noopener" class="rounded-xl bg-green-600 px-4 py-2 font-extrabold text-white">WhatsApp</a>
-          <a href="https://www.instagram.com/indorepetvet" target="_blank" rel="noopener" class="rounded-xl bg-gradient-to-r from-fuchsia-600 to-orange-500 px-4 py-2 font-extrabold text-white">Instagram</a>
+        <details class="mobile-menu">
+          <summary aria-label="Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </summary>
+          <nav class="mobile-menu-panel" aria-label="Mobile navigation">
+            <a href="#services">Services</a>
+            <a href="#doctor">Doctor</a>
+            <a href="#gallery">Clinic</a>
+            <a href="#visit">Visit</a>
+            <a href="#faq">FAQ</a>
+            <a href="tel:+919827092475">Call clinic</a>
+          </nav>
+        </details>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">Surya Dev Nagar, Indore</p>
+            <h1 id="hero-title">PetVet</h1>
+            <p class="hero-copy">Bright, practical veterinary care in Indore for pets with personality, led by registered practitioner Dr. Amrit Lal Sharma.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="tel:+919827092475">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 19 19.5 19.5 0 0 1 5 12.81 19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.59 2.6a2 2 0 0 1-.45 2.11L8 9.63a16 16 0 0 0 6.37 6.37l1.2-1.2a2 2 0 0 1 2.11-.45c.83.27 1.7.47 2.6.59A2 2 0 0 1 22 16.92Z"/></svg>
+                Call +91 98270 92475
+              </a>
+              <a class="btn btn-whatsapp" href="https://wa.me/919827092475" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.74.46 3.45 1.32 4.94L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2Zm5.77 14.19c-.24.68-1.4 1.3-1.93 1.34-.49.04-1.1.06-1.77-.11-.41-.1-.93-.3-1.6-.59-2.82-1.22-4.65-4.06-4.79-4.25-.14-.19-1.14-1.52-1.14-2.9s.72-2.06.98-2.34c.25-.28.55-.35.74-.35h.53c.17.01.4-.06.63.48.24.58.82 2 .89 2.14.07.14.12.31.02.5-.1.19-.14.31-.28.48-.14.17-.3.37-.42.5-.14.14-.29.3-.12.58.17.28.75 1.23 1.6 1.99 1.1.98 2.03 1.28 2.31 1.42.28.14.44.12.61-.07.17-.19.7-.82.89-1.1.19-.28.37-.24.63-.14.25.1 1.62.77 1.9.91.28.14.47.21.54.33.07.12.07.7-.17 1.38Z"/></svg>
+                WhatsApp
+              </a>
+              <a class="btn btn-soft" href="#visit">Get directions</a>
+            </div>
+            <div class="hero-proof" aria-label="Clinic highlights">
+              <div class="proof-card reveal"><strong>B.V.Sc &amp; A.H.</strong><span>Qualified veterinary practitioner</span></div>
+              <div class="proof-card reveal"><strong>Reg. 1482/1998</strong><span>Madhya Pradesh State Veterinary Council</span></div>
+              <div class="proof-card reveal"><strong>2029</strong><span>Registration renewal valid through 31 March</span></div>
+            </div>
+            <div class="mascot-stage" aria-label="Playful illustrated clinic pets wearing glasses">
+              <div class="speech-bubble">Symptoms? Snacks? We know the difference.</div>
+              <div class="mascot mascot-dog" aria-hidden="true">
+                <svg viewBox="0 0 180 180" role="img">
+                  <circle cx="90" cy="91" r="67" fill="#ffbd3d"/>
+                  <path d="M38 58c-21 9-29 38-15 55 13 16 39 9 45-12L38 58Z" fill="#8b4a1f"/>
+                  <path d="M142 58c21 9 29 38 15 55-13 16-39 9-45-12l30-43Z" fill="#8b4a1f"/>
+                  <circle cx="90" cy="96" r="56" fill="#ffd982"/>
+                  <path d="M60 82c10-22 50-22 60 0 7 15 2 39-30 39S53 97 60 82Z" fill="#fff6dc"/>
+                  <circle cx="68" cy="87" r="6" fill="#111827"/>
+                  <circle cx="112" cy="87" r="6" fill="#111827"/>
+                  <path d="M82 107c4 5 12 5 16 0" fill="none" stroke="#111827" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M90 96l-9 8h18l-9-8Z" fill="#111827"/>
+                  <rect x="44" y="72" width="44" height="27" rx="12" fill="none" stroke="#111827" stroke-width="7"/>
+                  <rect x="92" y="72" width="44" height="27" rx="12" fill="none" stroke="#111827" stroke-width="7"/>
+                  <path d="M88 84h4" stroke="#111827" stroke-width="7" stroke-linecap="round"/>
+                  <path d="M54 137c20 13 53 13 72 0" fill="none" stroke="#ff6f61" stroke-width="12" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="mascot mascot-cat" aria-hidden="true">
+                <svg viewBox="0 0 180 180" role="img">
+                  <path d="M45 66 38 24l36 25M135 66l7-42-36 25" fill="#ff8bc4"/>
+                  <circle cx="90" cy="94" r="62" fill="#fff"/>
+                  <path d="M43 64 38 24l36 25" fill="#fff"/>
+                  <path d="M137 64l5-40-36 25" fill="#fff"/>
+                  <path d="M57 69c12-8 54-8 66 0 16 11 20 52-5 69-17 12-39 12-56 0-25-17-21-58-5-69Z" fill="#ffe4ef"/>
+                  <circle cx="69" cy="91" r="6" fill="#111827"/>
+                  <circle cx="111" cy="91" r="6" fill="#111827"/>
+                  <path d="M90 101l-7 6h14l-7-6Z" fill="#111827"/>
+                  <path d="M82 115c5 4 11 4 16 0" fill="none" stroke="#111827" stroke-width="4" stroke-linecap="round"/>
+                  <rect x="45" y="76" width="43" height="27" rx="12" fill="none" stroke="#111827" stroke-width="7"/>
+                  <rect x="92" y="76" width="43" height="27" rx="12" fill="none" stroke="#111827" stroke-width="7"/>
+                  <path d="M88 88h4" stroke="#111827" stroke-width="7" stroke-linecap="round"/>
+                  <path d="M42 110h27M42 122h28M138 110h-27M138 122h-28" stroke="#111827" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M65 143c15 10 35 10 50 0" fill="none" stroke="#3b82f6" stroke-width="11" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-media" aria-label="Clinic photos">
+            <div class="photo-stack">
+              <figure class="main-photo">
+                <img src="./assets/maps/map-photo-1.jpg" alt="Dr. Amrit Lal Sharma treating a puppy at PetVet Veterinary Clinic" fetchpriority="high" />
+              </figure>
+              <figure class="pet-photo">
+                <img src="./assets/maps/map-photo-3.jpg" alt="A puppy at PetVet Veterinary Clinic" />
+              </figure>
+              <figure class="clinic-photo">
+                <img src="./assets/maps/map-photo-2.jpg" alt="A cat patient at PetVet Veterinary Clinic" />
+              </figure>
+              <div class="status-card reveal">
+                <strong>Walk-ins welcome when the doctor is available.</strong>
+                <span>Call first for the fastest guidance.</span>
+              </div>
+              <div class="quick-card reveal">
+                <span>Need quick advice?</span>
+                <strong>Call or WhatsApp before visiting for urgent first steps.</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="ribbon" aria-label="Clinic highlights">
+        <div class="ribbon-track">
+          <span><i></i> Veterinary consultation</span>
+          <span><i></i> Vaccination and deworming</span>
+          <span><i></i> Illness care</span>
+          <span><i></i> Wellness guidance</span>
+          <span><i></i> Community animal support</span>
+          <span><i></i> Veterinary consultation</span>
+          <span><i></i> Vaccination and deworming</span>
+          <span><i></i> Illness care</span>
+          <span><i></i> Wellness guidance</span>
+          <span><i></i> Community animal support</span>
         </div>
       </div>
-      <div class="relative mx-auto hidden h-[220px] w-[220px] items-center justify-center md:flex">
-        <div class="absolute inset-0 rounded-full bg-white/10"></div>
-        <div class="float text-[82px]">🐶</div>
-        <div class="float2 absolute -bottom-4 right-1 text-[72px]">🐱</div>
-      </div>
-    </div>
-  </section>
 
-  <div class="ticker overflow-hidden border-y border-blue-200/60 bg-blue-50 py-2 text-sm font-semibold text-blue-900"><span>🐾 Walk-ins Available • 💉 Get Vaxed • ❤️ Your Pet Wellness Center • 🐾 Walk-ins Available • 💉 Get Vaxed • ❤️ Your Pet Wellness Center • </span></div>
+      <section id="services" aria-labelledby="services-title">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="kicker">What we help with</span>
+              <h2 id="services-title">Everyday care, clear next steps.</h2>
+            </div>
+            <p>From preventive routines to illness concerns, the clinic focuses on practical treatment, calm explanations and responsible follow-up.</p>
+          </div>
+          <div class="services-grid">
+            <article class="service-card reveal">
+              <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v13.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+              <h3>Veterinary consultation</h3>
+              <p>Diagnosis, treatment planning and guidance for common concerns, behavior changes and ongoing health issues.</p>
+            </article>
+            <article class="service-card reveal">
+              <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 5-3-3-3 3"/><path d="M16 2v9"/><path d="M9 10h6a4 4 0 0 1 4 4v0a4 4 0 0 1-4 4H7l-4 4v-8a4 4 0 0 1 4-4h2Z"/></svg></div>
+              <h3>Vaccination and deworming</h3>
+              <p>Preventive schedules for puppies, adult pets and routine protection, with clear reminders on what comes next.</p>
+            </article>
+            <article class="service-card reveal">
+              <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg></div>
+              <h3>Wellness checkups</h3>
+              <p>Weight, appetite, skin, coat, digestion and lifestyle checks to catch small problems before they become serious.</p>
+            </article>
+            <article class="service-card reveal">
+              <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M5 9H3a3 3 0 0 0 3 3h1"/><path d="M19 9h2a3 3 0 0 1-3 3h-1"/></svg></div>
+              <h3>Illness care</h3>
+              <p>Support for fever, infections, skin problems, appetite loss, stomach trouble and other everyday medical needs.</p>
+            </article>
+            <article class="service-card reveal">
+              <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="M9 12l2 2 4-5"/></svg></div>
+              <h3>Community animal support</h3>
+              <p>Compassionate first-line direction for local community animals and street dogs whenever clinic support is possible.</p>
+            </article>
+            <article class="service-card reveal">
+              <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+              <h3>Urgent guidance</h3>
+              <p>Quick call or WhatsApp direction for the safest immediate steps before bringing your pet to the clinic.</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-  <main class="w-full space-y-0">
-    <section id="about" class="border-t border-blue-100 bg-white px-6 py-8">
-      <div class="mx-auto max-w-6xl">
-        <div class="mb-2"><h2 class="text-3xl font-black text-petInk">About Us</h2></div>
-        <div class="grid items-start gap-4 md:grid-cols-2">
-          <article>
-            <h3 class="text-2xl font-black text-petInk">Dr. Amrit Lal Sharma <span class="text-base font-semibold text-slate-500">(B.V.Sc &amp; A.H.)</span></h3>
-            <p class="mt-1 font-medium">Registered Veterinary Practitioner</p>
-            <ul class="mt-3 list-disc space-y-1 pl-5">
-              <li>MPSVC Registration No.: <strong>1482/1998</strong></li><li>Renewal valid: <strong>12/07/2024</strong> to <strong>31/03/2029</strong></li><li>Issued by Madhya Pradesh State Veterinary Council</li>
-            </ul>
-            <p class="mt-3">PetVet supports both family pets and community animals with practical treatment guidance and preventive wellness care.</p>
+      <section class="doctor-section" id="doctor" aria-labelledby="doctor-title">
+        <div class="container doctor-grid">
+          <article class="doctor-card reveal">
+            <img src="./assets/maps/map-photo-1.jpg" alt="Dr. Amrit Lal Sharma at PetVet Veterinary Clinic" loading="lazy" />
+            <div class="doctor-copy">
+              <span class="kicker">Registered practitioner</span>
+              <h2 id="doctor-title">Meet Dr. Amrit Lal Sharma.</h2>
+              <p>PetVet is led by Dr. Amrit Lal Sharma, B.V.Sc &amp; A.H., a registered veterinary practitioner focused on straightforward treatment, preventive care and approachable guidance for pet parents.</p>
+              <ul class="meta-list">
+                <li><span class="check">&#10003;</span><span>MPSVC Registration No. 1482/1998</span></li>
+                <li><span class="check">&#10003;</span><span>Renewal valid from 12/07/2024 to 31/03/2029</span></li>
+                <li><span class="check">&#10003;</span><span>Issued by Madhya Pradesh State Veterinary Council</span></li>
+              </ul>
+            </div>
           </article>
-          <article class="rounded-2xl border border-slate-200 bg-slate-50 p-3"><img src="./assets/credentials/doctor-credential-web.jpg" alt="Doctor credential document" class="h-[420px] w-full rounded-xl object-contain bg-white" /></article>
+          <aside class="credential-card reveal" aria-label="Doctor credential">
+            <div class="credential-note">
+              <strong>Doctor credential</strong>
+              <span>B.V.Sc &amp; A.H.</span>
+            </div>
+            <img src="./assets/credentials/doctor-credential-web.jpg" alt="Bachelor of Veterinary Science and Animal Husbandry credential for Amrit Lal Sharma" loading="lazy" />
+          </aside>
+        </div>
+      </section>
+
+      <section id="gallery" aria-labelledby="gallery-title">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="kicker">Inside the clinic</span>
+              <h2 id="gallery-title">A clinic with a very personal touch.</h2>
+            </div>
+            <p>Real patients, real care, and a calm local clinic experience for families around Surya Dev Nagar and nearby Indore areas.</p>
+          </div>
+          <div class="experience-grid">
+            <aside class="care-panel reveal">
+              <span class="kicker">Why families call</span>
+              <h2>Practical care without confusion.</h2>
+              <p>Good veterinary visits should leave you knowing what happened, what to watch, and what to do next.</p>
+              <ul class="care-list">
+                <li><span class="check">&#10003;</span><span>Clear first steps before you travel to the clinic</span></li>
+                <li><span class="check">&#10003;</span><span>Preventive care for long-term health</span></li>
+                <li><span class="check">&#10003;</span><span>Support for both pets and community animals</span></li>
+              </ul>
+            </aside>
+            <div class="gallery-grid">
+              <figure class="gallery-item tall reveal">
+                <img src="./assets/maps/map-photo-2.jpg" alt="Cat patient at PetVet Veterinary Clinic" loading="lazy" />
+                <figcaption class="gallery-caption">Gentle handling for cats and dogs.</figcaption>
+              </figure>
+              <figure class="gallery-item reveal">
+                <img src="./assets/maps/map-photo-3.jpg" alt="Puppy patient at the clinic" loading="lazy" />
+                <figcaption class="gallery-caption">Preventive care for growing pets.</figcaption>
+              </figure>
+              <figure class="gallery-item reveal">
+                <img src="./assets/maps/map-photo-1.jpg" alt="Doctor consultation room at PetVet" loading="lazy" />
+                <figcaption class="gallery-caption">Consultation with clear guidance.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="visit-section" id="visit" aria-labelledby="visit-title">
+        <div class="container">
+          <div class="visit-card reveal">
+            <div class="visit-copy">
+              <span class="kicker">Visit PetVet</span>
+              <h2 id="visit-title">Call first. Come prepared.</h2>
+              <p>For urgent concerns, a quick call or WhatsApp helps the clinic guide you on the safest next step and confirm current availability.</p>
+              <div class="contact-list">
+                <div class="contact-row">
+                  <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                  <div><span>Address</span><strong>18 A, Surya Dev Nagar, Indore, Madhya Pradesh 452009</strong></div>
+                </div>
+                <div class="contact-row">
+                  <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 19 19.5 19.5 0 0 1 5 12.81 19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.59 2.6a2 2 0 0 1-.45 2.11L8 9.63a16 16 0 0 0 6.37 6.37l1.2-1.2a2 2 0 0 1 2.11-.45c.83.27 1.7.47 2.6.59A2 2 0 0 1 22 16.92Z"/></svg></span>
+                  <div><span>Phone</span><strong><a href="tel:+919827092475">+91 98270 92475</a></strong></div>
+                </div>
+                <div class="contact-row">
+                  <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></span>
+                  <div><span>Hours</span><strong>Open daily by current clinic availability. Please call to confirm.</strong></div>
+                </div>
+              </div>
+              <div class="visit-actions">
+                <a class="btn btn-primary" href="tel:+919827092475">Call clinic</a>
+                <a class="btn btn-whatsapp" href="https://wa.me/919827092475" target="_blank" rel="noopener">WhatsApp</a>
+                <a class="btn btn-soft" href="https://www.google.com/maps/search/?api=1&query=PetVet%20Veterinary%20Clinic%20Indore" target="_blank" rel="noopener">Open map</a>
+              </div>
+            </div>
+            <div class="map-wrap">
+              <iframe loading="lazy" title="PetVet Veterinary Clinic location in Indore" src="https://www.google.com/maps?q=PetVet%20Veterinary%20Clinic%20Indore&output=embed"></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" aria-labelledby="faq-title">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="kicker">Quick answers</span>
+              <h2 id="faq-title">Before you visit.</h2>
+            </div>
+            <p>These basics help pet parents act quickly and reduce avoidable stress before a clinic visit.</p>
+          </div>
+          <div class="faq-grid">
+            <article class="faq-card reveal">
+              <h3>Should I call before coming?</h3>
+              <p>Yes. Calling first helps confirm doctor availability and gives you immediate guidance for urgent symptoms.</p>
+            </article>
+            <article class="faq-card reveal">
+              <h3>Do you handle vaccination?</h3>
+              <p>Yes. The clinic supports vaccination and deworming schedules for preventive pet care.</p>
+            </article>
+            <article class="faq-card reveal">
+              <h3>Can I ask about street animals?</h3>
+              <p>Yes. PetVet supports community animal care whenever possible and can guide you on first steps.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <div>Copyright <span id="year"></span> PetVet Veterinary Clinic, Indore. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="https://www.instagram.com/indorepetvet" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=PetVet%20Veterinary%20Clinic%20Indore" target="_blank" rel="noopener">Google Maps</a>
         </div>
       </div>
-    </section>
+    </footer>
 
-    <section id="services" class="border-t border-blue-100 bg-slate-50 px-6 py-8">
-      <div class="mx-auto max-w-6xl">
-        <div class="mb-2"><h2 class="text-3xl font-black text-petInk">Services</h2></div>
-        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          <article class="rounded-2xl border border-slate-200 bg-white p-4"><h3 class="font-extrabold text-petInk">Veterinary Consultation</h3><p class="mt-1 text-sm">Careful diagnosis and treatment planning for routine and ongoing concerns.</p></article>
-          <article class="rounded-2xl border border-slate-200 bg-white p-4"><h3 class="font-extrabold text-petInk">Vaccination &amp; Deworming</h3><p class="mt-1 text-sm">Regular preventive care schedules for long-term pet health and safety.</p></article>
-          <article class="rounded-2xl border border-slate-200 bg-white p-4"><h3 class="font-extrabold text-petInk">Wellness Checkups</h3><p class="mt-1 text-sm">General health monitoring, nutrition basics and lifestyle guidance.</p></article>
-          <article class="rounded-2xl border border-slate-200 bg-white p-4"><h3 class="font-extrabold text-petInk">Treatment for Illness</h3><p class="mt-1 text-sm">Support for fever, infection, skin issues, appetite loss and common conditions.</p></article>
-          <article class="rounded-2xl border border-slate-200 bg-white p-4"><h3 class="font-extrabold text-petInk">Street Dog Care Support</h3><p class="mt-1 text-sm">Compassionate first-line help and care advice for local community animals.</p></article>
-          <article class="rounded-2xl border border-slate-200 bg-white p-4"><h3 class="font-extrabold text-petInk">Emergency Guidance</h3><p class="mt-1 text-sm">Quick call/WhatsApp direction for urgent first steps before a clinic visit.</p></article>
-        </div>
-      </div>
-    </section>
+    <div class="sticky-cta" aria-label="Quick contact actions">
+      <a class="btn btn-primary" href="tel:+919827092475">Call</a>
+      <a class="btn btn-whatsapp" href="https://wa.me/919827092475" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-soft" href="#visit">Directions</a>
+    </div>
+  </div>
 
-    <section id="reviews" class="border-t border-blue-100 bg-white px-6 py-8"><div class="mx-auto max-w-6xl"><div class="mb-4"><h2 class="text-3xl font-black text-petInk">Reviews</h2></div><div class="grid gap-4 md:grid-cols-2"><article class="rounded-2xl border border-slate-200 p-4"><p class="text-xl tracking-widest text-amber-500">★★★★★</p><p class="mt-2"><strong>Local pet parents recommend us</strong> for practical treatment and approachable support.</p></article><article class="overflow-hidden rounded-2xl border border-slate-200"><iframe loading="lazy" title="Google map reviews and location" src="https://www.google.com/maps?q=PetVet%20Veterinary%20Clinic%20Indore&output=embed" class="h-[330px] w-full"></iframe></article></div></div></section>
+  <script>
+    document.querySelectorAll('.mobile-menu-panel a').forEach((link) => {
+      link.addEventListener('click', () => link.closest('details')?.removeAttribute('open'));
+    });
 
-    <section id="gallery" class="border-t border-blue-100 bg-slate-50 px-6 py-8"><div class="mx-auto max-w-6xl"><div class="mb-4"><h2 class="text-3xl font-black text-petInk">Clinic Gallery</h2></div><div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"><figure class="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2"><img src="./assets/maps/map-photo-1.jpg" alt="PetVet gallery image 1" class="h-56 w-full rounded-xl object-cover" /></figure><figure class="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2"><img src="./assets/maps/map-photo-2.jpg" alt="PetVet gallery image 2" class="h-56 w-full rounded-xl object-cover" /></figure><figure class="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2"><img src="./assets/maps/map-photo-3.jpg" alt="PetVet gallery image 3" class="h-56 w-full rounded-xl object-cover" /></figure></div></div></section>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    <section id="contact" class="border-y border-blue-100 bg-white px-6 py-8"><div class="mx-auto max-w-6xl"><div class="mb-4 flex flex-wrap items-end justify-between gap-2"><h2 class="text-3xl font-black text-petInk">Contact Us</h2><p class="text-sm text-slate-500">Call or WhatsApp for faster response</p></div><div class="grid gap-4 md:grid-cols-2"><article class="rounded-2xl border border-slate-200 p-4"><div class="text-xs font-extrabold uppercase tracking-wider text-slate-500">Clinic Address</div><div class="mt-1 font-bold text-petInk">18 A, Surya Dev Nagar, Indore, Madhya Pradesh 452009</div><div class="mt-4 text-xs font-extrabold uppercase tracking-wider text-slate-500">Phone</div><div class="mt-1 font-bold text-petInk"><a href="tel:+919827092475">+91 98270 92475</a></div><div class="mt-4 text-xs font-extrabold uppercase tracking-wider text-slate-500">Hours</div><div class="mt-1 font-bold text-petInk">Open daily — call for exact timings</div><div class="mt-5 flex flex-wrap gap-2"><a href="tel:+919827092475" class="rounded-xl bg-petBlue px-4 py-2 font-bold text-white">Call</a><a href="https://wa.me/919827092475" target="_blank" rel="noopener" class="rounded-xl bg-green-600 px-4 py-2 font-bold text-white">WhatsApp</a><a href="https://www.instagram.com/indorepetvet" target="_blank" rel="noopener" class="rounded-xl bg-gradient-to-r from-fuchsia-600 to-orange-500 px-4 py-2 font-bold text-white">Instagram</a></div></article><article class="overflow-hidden rounded-2xl border border-slate-200"><iframe loading="lazy" title="PetVet map" src="https://www.google.com/maps?q=PetVet%20Veterinary%20Clinic%20Indore&output=embed" class="h-[330px] w-full"></iframe></article></div></div></section>
-
-    <footer class="py-6 text-center text-sm text-slate-500">© <span id="year"></span> PetVet Veterinary Clinic, Indore</footer>
-  </main>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    const revealItems = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add('visible'));
+    }
+  </script>
 </body>
 </html>
