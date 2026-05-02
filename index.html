@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetVet Veterinary Clinic | Indore</title>
+  <meta name="description" content="Compassionate veterinary care for pets and street animals in Indore." />
+  <style>
+    :root { --brand:#0f766e; --text:#1f2937; --bg:#f8fafc; --card:#ffffff; }
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,sans-serif;color:var(--text);background:var(--bg)}
+    .wrap{max-width:1050px;margin:auto;padding:20px}
+    .hero{background:linear-gradient(120deg,#ccfbf1,#ecfeff);border-radius:16px;padding:28px}
+    h1,h2,h3{margin:0 0 12px} p{line-height:1.6}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .call{background:var(--brand);color:#fff}.wa{background:#16a34a;color:#fff}
+    .grid{display:grid;gap:14px}.services{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+    .gallery{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .gallery img,.cred img{width:100%;height:auto;border-radius:10px}
+    .section{margin-top:24px}
+    iframe{width:100%;min-height:320px;border:0;border-radius:12px}
+    .small{font-size:14px;color:#4b5563}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>PetVet Veterinary Clinic</h1>
+      <p>Compassionate veterinary care for pets and street animals in Indore.</p>
+      <div class="btns">
+        <a class="btn call" href="tel:+919827092475">Call Now</a>
+        <a class="btn wa" href="https://wa.me/919827092475" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Our Veterinary Services</h2>
+      <div class="grid services">
+        <div class="card">Veterinary Consultation</div>
+        <div class="card">Vaccination &amp; Deworming</div>
+        <div class="card">Pet Wellness Checkups</div>
+        <div class="card">Treatment for Common Illnesses</div>
+        <div class="card">Street Dog Care Support</div>
+        <div class="card">Emergency Guidance</div>
+      </div>
+    </section>
+
+    <section class="section card">
+      <h2>About Doctor</h2>
+      <p><strong>Dr. Amrit Lal Sharma (B.V.Sc &amp; A.H.)</strong><br/>
+      Registered Veterinary Practitioner<br/>
+      MPSVC Registration No. 1482/1998<br/>
+      Registration renewed from 12/07/2024 to 31/03/2029 (Madhya Pradesh State Veterinary Council).</p>
+      <div class="cred"><img src="assets/credentials/doctor-credential-web.jpg" alt="Doctor credential"/></div>
+    </section>
+
+    <section class="section">
+      <h2>Clinic Gallery</h2>
+      <div class="grid gallery">
+        <img src="assets/maps/map-photo-1.jpg" alt="PetVet clinic photo 1"/>
+        <img src="assets/maps/map-photo-2.jpg" alt="PetVet clinic photo 2"/>
+        <img src="assets/maps/map-photo-3.jpg" alt="PetVet clinic photo 3"/>
+      </div>
+    </section>
+
+    <section class="section card">
+      <h2>Contact</h2>
+      <p><strong>Address:</strong> 18 A, Surya Dev Nagar, Indore, Madhya Pradesh 452009, India<br/>
+      <strong>Phone:</strong> <a href="tel:+919827092475">+91 98270 92475</a><br/>
+      <strong>Hours:</strong> Open daily, please call for exact timings.</p>
+      <iframe loading="lazy" src="https://www.google.com/maps?q=PetVet%20Veterinary%20Clinic%20Indore&output=embed"></iframe>
+      <p class="small">For appointment requests, call or WhatsApp directly for fastest response.</p>
+    </section>
+  </div>
+</body>
+</html>
