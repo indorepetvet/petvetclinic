@@ -4,179 +4,107 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PetVet Veterinary Clinic | Indore</title>
-  <meta name="description" content="PetVet Veterinary Clinic in Indore — consultations, vaccination, wellness care, treatment, and compassionate support for pets and street animals." />
-  <meta name="theme-color" content="#0f766e" />
+  <meta name="description" content="PetVet Veterinary Clinic, Indore — consultations, vaccination, treatment, wellness care and compassionate support for pets and street animals." />
+  <meta name="theme-color" content="#0f4ac9" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { petBlue:'#1452cc', petInk:'#10213f', petYellow:'#f8c829' } } } }
+  </script>
   <style>
-    :root{
-      --brand:#0f766e;
-      --brand-dark:#115e59;
-      --mint:#ccfbf1;
-      --ink:#0f172a;
-      --text:#334155;
-      --bg:#f8fafc;
-      --card:#ffffff;
-      --line:#e2e8f0;
-      --shadow:0 10px 30px rgba(15,23,42,.10);
-      --radius:16px;
-    }
-    *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text);background:radial-gradient(circle at 10% 10%,#ecfeff 0,#f8fafc 35%,#f8fafc 100%)}
-    a{color:inherit}
-    .container{max-width:1150px;margin:auto;padding:20px}
-
-    .nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(8px);background:rgba(248,250,252,.85);border:1px solid var(--line);border-radius:14px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;margin-top:8px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--ink)}
-    .paw{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(135deg,var(--brand),#14b8a6);color:#fff;font-size:18px}
-    .nav-links{display:flex;gap:16px;font-size:14px;color:#475569;flex-wrap:wrap}
-
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:stretch;margin-top:16px}
-    .hero-main{background:linear-gradient(135deg,#ffffff,#ecfeff);border:1px solid #dbeafe;border-radius:var(--radius);padding:32px;box-shadow:var(--shadow)}
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-dark);background:var(--mint);padding:7px 10px;border-radius:999px}
-    h1{margin:14px 0 10px;color:var(--ink);font-size:clamp(28px,4vw,46px);line-height:1.1}
-    .lead{font-size:17px;line-height:1.65;max-width:56ch}
-    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700;border:1px solid transparent;transition:.18s ease}
-    .btn:hover{transform:translateY(-1px)}
-    .btn-primary{background:var(--brand);color:#fff}
-    .btn-primary:hover{background:var(--brand-dark)}
-    .btn-wa{background:#16a34a;color:#fff}
-    .btn-soft{background:#fff;border-color:var(--line);color:var(--ink)}
-
-    .hero-side{display:grid;gap:12px}
-    .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 4px 18px rgba(15,23,42,.05)}
-    .stat strong{display:block;color:var(--ink);font-size:20px}
-    .stat span{font-size:14px;color:#64748b}
-
-    .section{margin-top:28px}
-    .section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:12px}
-    .section h2{margin:0;color:var(--ink);font-size:clamp(24px,3vw,34px)}
-    .muted{font-size:14px;color:#64748b}
-
-    .grid{display:grid;gap:14px}
-    .services{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 4px 16px rgba(15,23,42,.05)}
-    .service-title{font-weight:700;color:var(--ink);margin-bottom:8px}
-    .service-desc{font-size:14px;line-height:1.55;color:#475569}
-
-    .doctor{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:start}
-    .doctor .title{font-weight:800;color:var(--ink);font-size:22px;margin:0 0 8px}
-    .doctor ul{margin:10px 0 0 18px;padding:0;line-height:1.7}
-    .cred{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px}
-    .cred img{width:100%;display:block;border-radius:10px}
-
-    .gallery{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-    .gallery figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 4px 16px rgba(15,23,42,.05)}
-    .gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block}
-
-    .contact{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .contact-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 4px 16px rgba(15,23,42,.05)}
-    .label{font-size:13px;color:#64748b;text-transform:uppercase;letter-spacing:.04em;margin-top:10px}
-    .value{font-weight:700;color:var(--ink);margin-top:4px}
-    iframe{width:100%;min-height:360px;border:0;border-radius:12px}
-
-    .footer{margin:30px 0 16px;text-align:center;color:#64748b;font-size:13px}
-
-    @media (max-width: 900px){
-      .hero,.doctor,.contact{grid-template-columns:1fr}
-      .hero-main{padding:24px}
-      .nav{position:static}
-    }
+    .float{animation:float 3.8s ease-in-out infinite}
+    .float2{animation:float 4.3s ease-in-out infinite .4s}
+    .ticker span{display:inline-block;animation:slide 14s linear infinite;white-space:nowrap}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    @keyframes slide{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
   </style>
 </head>
-<body>
-  <div class="container">
-    <nav class="nav">
-      <div class="brand"><div class="paw">🐾</div>PetVet Veterinary Clinic</div>
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#doctor">Doctor</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
+<body class="bg-white text-slate-700 antialiased">
+  <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <a href="#home" class="flex items-center gap-2 font-black text-petInk">
+        <span class="grid h-9 w-9 place-items-center rounded-xl bg-petBlue text-white">
+          <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true"><path d="M4.5 9A2.5 2.5 0 1 0 4.5 4a2.5 2.5 0 0 0 0 5Zm15 0A2.5 2.5 0 1 0 19.5 4a2.5 2.5 0 0 0 0 5ZM12 6A2.75 2.75 0 1 0 12 .5 2.75 2.75 0 0 0 12 6Zm-3.65 5.5c-2.4 0-4.35 2.03-4.35 4.54C4 19.47 7.22 22 12 22s8-2.53 8-5.96c0-2.51-1.95-4.54-4.35-4.54-1.35 0-2.34.64-3.65 1.53-1.31-.89-2.3-1.53-3.65-1.53Z"/></svg>
+        </span>
+        PetVet
+      </a>
+      <div class="hidden gap-5 text-sm font-semibold text-slate-600 md:flex">
+        <a href="#about" class="hover:text-petBlue">About</a><a href="#services" class="hover:text-petBlue">Services</a><a href="#reviews" class="hover:text-petBlue">Reviews</a><a href="#gallery" class="hover:text-petBlue">Gallery</a><a href="#contact" class="hover:text-petBlue">Contact</a>
       </div>
+      <a href="https://wa.me/919827092475" target="_blank" rel="noopener" class="rounded-xl bg-green-600 px-3 py-2 text-sm font-bold text-white">WhatsApp</a>
     </nav>
+  </header>
 
-    <header class="hero">
-      <section class="hero-main">
-        <span class="eyebrow">Trusted Pet Care in Indore</span>
-        <h1>Compassionate care for pets and street animals.</h1>
-        <p class="lead">From regular checkups to vaccinations and treatment support, PetVet provides practical and caring veterinary services for your furry family members.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="tel:+919827092475">📞 Call Now</a>
-          <a class="btn btn-wa" href="https://wa.me/919827092475" target="_blank" rel="noopener">💬 WhatsApp</a>
-          <a class="btn btn-soft" href="#contact">📍 Visit Clinic</a>
+  <section id="home" class="relative isolate min-h-[86vh] overflow-hidden">
+    <video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline>
+      <source src="https://360cdn.s3.us-west-1.amazonaws.com/assets/o360/video/video-veterinary.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0f2f76]/90 via-[#1452cc]/70 to-[#1452cc]/35"></div>
+    <div class="relative mx-auto grid min-h-[86vh] max-w-7xl items-center gap-8 px-4 py-10 md:grid-cols-2">
+      <div class="text-white">
+        <p class="inline-block rounded-full border border-white/35 bg-white/15 px-3 py-1 text-xs font-extrabold uppercase tracking-wider">Your Pet Wellness Center</p>
+        <h1 class="mt-4 text-5xl font-black leading-none sm:text-7xl">PETVET</h1>
+        <p class="mt-4 max-w-xl text-blue-50">Compassionate veterinary care in Indore for pets and street animals — friendly guidance, practical treatment, and trusted doctor support.</p>
+        <div class="mt-5 flex flex-wrap gap-2">
+          <span class="float rounded-full bg-white/20 px-4 py-2 text-sm font-extrabold">🚶 Walk-ins Available</span>
+          <span class="float2 rounded-full bg-petYellow px-4 py-2 text-sm font-black text-[#533f00]">💉 Get Vaxed</span>
         </div>
-      </section>
-      <aside class="hero-side">
-        <div class="stat"><strong>Daily Support</strong><span>Call for same-day guidance and availability.</span></div>
-        <div class="stat"><strong>Experienced Doctor</strong><span>Licensed veterinary practitioner with state registration.</span></div>
-        <div class="stat"><strong>Local & Accessible</strong><span>Conveniently located in Surya Dev Nagar, Indore.</span></div>
-      </aside>
-    </header>
-
-    <section id="services" class="section">
-      <div class="section-head">
-        <h2>Our Services</h2>
-        <div class="muted">Focused, practical care for pets & community animals</div>
-      </div>
-      <div class="grid services">
-        <article class="card"><div class="service-title">Veterinary Consultation</div><div class="service-desc">Diagnosis and treatment planning for common pet health concerns.</div></article>
-        <article class="card"><div class="service-title">Vaccination & Deworming</div><div class="service-desc">Routine immunization and parasite prevention schedules.</div></article>
-        <article class="card"><div class="service-title">Wellness Checkups</div><div class="service-desc">Regular health examinations to keep pets active and healthy.</div></article>
-        <article class="card"><div class="service-title">Illness Treatment</div><div class="service-desc">Support for infections, digestive issues, fever, skin conditions, and more.</div></article>
-        <article class="card"><div class="service-title">Street Dog Care</div><div class="service-desc">Compassionate basic care guidance for local street animals.</div></article>
-        <article class="card"><div class="service-title">Emergency Guidance</div><div class="service-desc">Quick first-step advice over call/WhatsApp before clinic visit.</div></article>
-      </div>
-    </section>
-
-    <section id="doctor" class="section doctor">
-      <article class="card">
-        <h2 style="margin-top:0">Doctor Credentials</h2>
-        <p class="title">Dr. Amrit Lal Sharma <span style="font-size:15px;font-weight:600;color:#475569">(B.V.Sc & A.H.)</span></p>
-        <p style="margin:0">Registered Veterinary Practitioner</p>
-        <ul>
-          <li>MPSVC Registration No.: <strong>1482/1998</strong></li>
-          <li>Renewal valid from <strong>12/07/2024</strong> to <strong>31/03/2029</strong></li>
-          <li>Issued by Madhya Pradesh State Veterinary Council</li>
-        </ul>
-      </article>
-      <article class="cred">
-        <img src="assets/credentials/doctor-credential-web.jpg" alt="Doctor registration credential" />
-      </article>
-    </section>
-
-    <section id="gallery" class="section">
-      <div class="section-head">
-        <h2>Clinic Gallery</h2>
-      </div>
-      <div class="grid gallery">
-        <figure><img src="assets/maps/map-photo-1.jpg" alt="PetVet clinic photo 1" /></figure>
-        <figure><img src="assets/maps/map-photo-2.jpg" alt="PetVet clinic photo 2" /></figure>
-        <figure><img src="assets/maps/map-photo-3.jpg" alt="PetVet clinic photo 3" /></figure>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact">
-      <article class="contact-card">
-        <h2 style="margin-top:0">Contact & Location</h2>
-        <div class="label">Address</div>
-        <div class="value">18 A, Surya Dev Nagar, Indore, Madhya Pradesh 452009</div>
-        <div class="label">Phone</div>
-        <div class="value"><a href="tel:+919827092475" style="text-decoration:none;color:inherit">+91 98270 92475</a></div>
-        <div class="label">Hours</div>
-        <div class="value">Open daily (please call for exact timings)</div>
-        <div class="cta" style="margin-top:14px">
-          <a class="btn btn-primary" href="tel:+919827092475">Call</a>
-          <a class="btn btn-wa" href="https://wa.me/919827092475" target="_blank" rel="noopener">WhatsApp</a>
+        <div class="mt-5 flex flex-wrap gap-2">
+          <a href="tel:+919827092475" class="rounded-xl bg-white px-4 py-2 font-extrabold text-petBlue">📞 Call Now</a>
+          <a href="https://wa.me/919827092475" target="_blank" rel="noopener" class="rounded-xl bg-green-600 px-4 py-2 font-extrabold text-white">WhatsApp</a>
+          <a href="https://www.instagram.com/indorepetvet" target="_blank" rel="noopener" class="rounded-xl bg-gradient-to-r from-fuchsia-600 to-orange-500 px-4 py-2 font-extrabold text-white">Instagram</a>
         </div>
-      </article>
-      <article class="contact-card" style="padding:8px">
-        <iframe loading="lazy" src="https://www.google.com/maps?q=PetVet%20Veterinary%20Clinic%20Indore&output=embed" title="PetVet Veterinary Clinic location"></iframe>
-      </article>
+      </div>
+      <div class="relative mx-auto hidden h-[220px] w-[220px] items-center justify-center md:flex">
+        <div class="absolute inset-0 rounded-full bg-white/10"></div>
+        <div class="float text-[82px]">🐶</div>
+        <div class="float2 absolute -bottom-4 right-1 text-[72px]">🐱</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker overflow-hidden border-y border-blue-200/60 bg-blue-50 py-2 text-sm font-semibold text-blue-900"><span>🐾 Walk-ins Available • 💉 Get Vaxed • ❤️ Your Pet Wellness Center • 🐾 Walk-ins Available • 💉 Get Vaxed • ❤️ Your Pet Wellness Center • </span></div>
+
+  <main class="w-full space-y-0">
+    <section id="about" class="border-t border-blue-100 bg-white px-6 py-8">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-2"><h2 class="text-3xl font-black text-petInk">About Us</h2></div>
+        <div class="grid items-start gap-4 md:grid-cols-2">
+          <article>
+            <h3 class="text-2xl font-black text-petInk">Dr. Amrit Lal Sharma <span class="text-base font-semibold text-slate-500">(B.V.Sc &amp; A.H.)</span></h3>
+            <p class="mt-1 font-medium">Registered Veterinary Practitioner</p>
+            <ul class="mt-3 list-disc space-y-1 pl-5">
+              <li>MPSVC Registration No.: <strong>1482/1998</strong></li><li>Renewal valid: <strong>12/07/2024</strong> to <strong>31/03/2029</strong></li><li>Issued by Madhya Pradesh State Veterinary Council</li>
+            </ul>
+            <p class="mt-3">PetVet supports both family pets and community animals with practical treatment guidance and preventive wellness care.</p>
+          </article>
+          <article class="rounded-2xl border border-slate-200 bg-slate-50 p-3"><img src="./assets/credentials/doctor-credential-web.jpg" alt="Doctor credential document" class="h-[420px] w-full rounded-xl object-contain bg-white" /></article>
+        </div>
+      </div>
     </section>
 
-    <p class="footer">© <span id="year"></span> PetVet Veterinary Clinic, Indore • Built with care</p>
-  </div>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+    <section id="services" class="border-t border-blue-100 bg-slate-50 px-6 py-8">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-2"><h2 class="text-3xl font-black text-petInk">Services</h2></div>
+        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="rounded-2xl border border-slate-200 bg-white p-4"><h3 class="font-extrabold text-petInk">Veterinary Consultation</h3><p class="mt-1 text-sm">Careful diagnosis and treatment planning for routine and ongoing concerns.</p></article>
+          <article class="rounded-2xl border border-slate-200 bg-white p-4"><h3 class="font-extrabold text-petInk">Vaccination &amp; Deworming</h3><p class="mt-1 text-sm">Regular preventive care schedules for long-term pet health and safety.</p></article>
+          <article class="rounded-2xl border border-slate-200 bg-white p-4"><h3 class="font-extrabold text-petInk">Wellness Checkups</h3><p class="mt-1 text-sm">General health monitoring, nutrition basics and lifestyle guidance.</p></article>
+          <article class="rounded-2xl border border-slate-200 bg-white p-4"><h3 class="font-extrabold text-petInk">Treatment for Illness</h3><p class="mt-1 text-sm">Support for fever, infection, skin issues, appetite loss and common conditions.</p></article>
+          <article class="rounded-2xl border border-slate-200 bg-white p-4"><h3 class="font-extrabold text-petInk">Street Dog Care Support</h3><p class="mt-1 text-sm">Compassionate first-line help and care advice for local community animals.</p></article>
+          <article class="rounded-2xl border border-slate-200 bg-white p-4"><h3 class="font-extrabold text-petInk">Emergency Guidance</h3><p class="mt-1 text-sm">Quick call/WhatsApp direction for urgent first steps before a clinic visit.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="border-t border-blue-100 bg-white px-6 py-8"><div class="mx-auto max-w-6xl"><div class="mb-4"><h2 class="text-3xl font-black text-petInk">Reviews</h2></div><div class="grid gap-4 md:grid-cols-2"><article class="rounded-2xl border border-slate-200 p-4"><p class="text-xl tracking-widest text-amber-500">★★★★★</p><p class="mt-2"><strong>Local pet parents recommend us</strong> for practical treatment and approachable support.</p></article><article class="overflow-hidden rounded-2xl border border-slate-200"><iframe loading="lazy" title="Google map reviews and location" src="https://www.google.com/maps?q=PetVet%20Veterinary%20Clinic%20Indore&output=embed" class="h-[330px] w-full"></iframe></article></div></div></section>
+
+    <section id="gallery" class="border-t border-blue-100 bg-slate-50 px-6 py-8"><div class="mx-auto max-w-6xl"><div class="mb-4"><h2 class="text-3xl font-black text-petInk">Clinic Gallery</h2></div><div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"><figure class="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2"><img src="./assets/maps/map-photo-1.jpg" alt="PetVet gallery image 1" class="h-56 w-full rounded-xl object-cover" /></figure><figure class="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2"><img src="./assets/maps/map-photo-2.jpg" alt="PetVet gallery image 2" class="h-56 w-full rounded-xl object-cover" /></figure><figure class="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2"><img src="./assets/maps/map-photo-3.jpg" alt="PetVet gallery image 3" class="h-56 w-full rounded-xl object-cover" /></figure></div></div></section>
+
+    <section id="contact" class="border-y border-blue-100 bg-white px-6 py-8"><div class="mx-auto max-w-6xl"><div class="mb-4 flex flex-wrap items-end justify-between gap-2"><h2 class="text-3xl font-black text-petInk">Contact Us</h2><p class="text-sm text-slate-500">Call or WhatsApp for faster response</p></div><div class="grid gap-4 md:grid-cols-2"><article class="rounded-2xl border border-slate-200 p-4"><div class="text-xs font-extrabold uppercase tracking-wider text-slate-500">Clinic Address</div><div class="mt-1 font-bold text-petInk">18 A, Surya Dev Nagar, Indore, Madhya Pradesh 452009</div><div class="mt-4 text-xs font-extrabold uppercase tracking-wider text-slate-500">Phone</div><div class="mt-1 font-bold text-petInk"><a href="tel:+919827092475">+91 98270 92475</a></div><div class="mt-4 text-xs font-extrabold uppercase tracking-wider text-slate-500">Hours</div><div class="mt-1 font-bold text-petInk">Open daily — call for exact timings</div><div class="mt-5 flex flex-wrap gap-2"><a href="tel:+919827092475" class="rounded-xl bg-petBlue px-4 py-2 font-bold text-white">Call</a><a href="https://wa.me/919827092475" target="_blank" rel="noopener" class="rounded-xl bg-green-600 px-4 py-2 font-bold text-white">WhatsApp</a><a href="https://www.instagram.com/indorepetvet" target="_blank" rel="noopener" class="rounded-xl bg-gradient-to-r from-fuchsia-600 to-orange-500 px-4 py-2 font-bold text-white">Instagram</a></div></article><article class="overflow-hidden rounded-2xl border border-slate-200"><iframe loading="lazy" title="PetVet map" src="https://www.google.com/maps?q=PetVet%20Veterinary%20Clinic%20Indore&output=embed" class="h-[330px] w-full"></iframe></article></div></div></section>
+
+    <footer class="py-6 text-center text-sm text-slate-500">© <span id="year"></span> PetVet Veterinary Clinic, Indore</footer>
+  </main>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
