@@ -332,6 +332,7 @@
       position: absolute;
       left: 12px;
       bottom: 12px;
+      max-width: calc(100% - 24px);
       border-radius: 999px;
       background: rgba(17, 24, 39, .78);
       color: var(--white);
@@ -339,6 +340,7 @@
       font-size: 12px;
       font-weight: 900;
       backdrop-filter: blur(10px);
+      white-space: nowrap;
     }
     .funny-slide {
       display: grid;
@@ -352,27 +354,6 @@
       animation: bob 3.8s ease-in-out infinite;
     }
     .funny-slide:last-child .funny-animal { animation-delay: .45s; }
-    .carousel-dots {
-      position: absolute;
-      left: 50%;
-      bottom: 13px;
-      z-index: 4;
-      display: flex;
-      gap: 7px;
-      transform: translateX(-50%);
-    }
-    .carousel-dot {
-      width: 8px;
-      height: 8px;
-      border: 0;
-      border-radius: 999px;
-      background: rgba(17, 24, 39, .26);
-      padding: 0;
-    }
-    .carousel-dot.is-active {
-      width: 22px;
-      background: var(--teal);
-    }
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -1204,14 +1185,6 @@
                   <figcaption class="carousel-caption">Fluent in meow, side-eye, and snacks</figcaption>
                 </figure>
               </div>
-              <div class="carousel-dots">
-                <button class="carousel-dot is-active" type="button" aria-label="Show real pet photo"></button>
-                <button class="carousel-dot" type="button" aria-label="Show doctor profile photo"></button>
-                <button class="carousel-dot" type="button" aria-label="Show cat consultation photo"></button>
-                <button class="carousel-dot" type="button" aria-label="Show doctor checkup photo"></button>
-                <button class="carousel-dot" type="button" aria-label="Show funny dog slide"></button>
-                <button class="carousel-dot" type="button" aria-label="Show funny cat slide"></button>
-              </div>
             </div>
             <div class="hero-actions">
               <a class="btn btn-primary" href="tel:+919827092475">
@@ -1445,7 +1418,7 @@
                 </div>
                 <div class="contact-row">
                   <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></span>
-                  <div><span>Hours</span><strong>Open daily by current clinic availability. Please call to confirm.</strong></div>
+                  <div><span>Hours</span><strong>Monday to Saturday 6-9 PM and Sunday 10 AM-1 PM.</strong></div>
                 </div>
               </div>
               <div class="visit-actions">
@@ -1515,31 +1488,20 @@
     const mobileCarousel = document.querySelector('[data-mobile-carousel]');
     if (mobileCarousel) {
       const track = mobileCarousel.querySelector('.carousel-track');
-      const dots = Array.from(mobileCarousel.querySelectorAll('.carousel-dot'));
       const slides = mobileCarousel.querySelectorAll('.carousel-slide');
       let activeSlide = 0;
       let scrollTimer;
 
-      const updateDots = () => {
-        dots.forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === activeSlide));
-      };
-
       const showSlide = (index) => {
         activeSlide = ((index % slides.length) + slides.length) % slides.length;
         track.scrollTo({ left: activeSlide * track.clientWidth, behavior: 'smooth' });
-        updateDots();
       };
-
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => showSlide(index));
-      });
 
       track.addEventListener('scroll', () => {
         window.clearTimeout(scrollTimer);
         scrollTimer = window.setTimeout(() => {
           const nextSlide = Math.round(track.scrollLeft / track.clientWidth);
           activeSlide = Math.max(0, Math.min(slides.length - 1, nextSlide));
-          updateDots();
         }, 80);
       }, { passive: true });
 
